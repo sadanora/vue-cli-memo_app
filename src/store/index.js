@@ -1,4 +1,9 @@
 import { createStore } from 'vuex'
+import { VuexPersistence } from 'vuex-persist'
+
+const vuexPersist = new VuexPersistence({
+  storage: localStorage
+})
 
 export default createStore({
   state: {
@@ -17,6 +22,7 @@ export default createStore({
     }
   },
   mutations: {
+    RESTORE_MUTATION: vuexPersist.RESTORE_MUTATION,
     save (state, newMemo) {
       if (newMemo.id) {
         let existingMemo = state.memos.find(memo => memo.id === newMemo.id)
@@ -33,5 +39,6 @@ export default createStore({
   actions: {
   },
   modules: {
-  }
+  },
+  plugins: [vuexPersist.plugin]
 })
