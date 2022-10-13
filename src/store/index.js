@@ -25,6 +25,9 @@ export default createStore({
         newMemo.id = ++state.count
         state.memos.unshift(newMemo)
       }
+    },
+    delete (state, id) {
+      state.memos = state.memos.filter(memo => memo.id !== id)
     }
   },
   actions: {
