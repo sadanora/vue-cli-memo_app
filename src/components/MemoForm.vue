@@ -19,7 +19,6 @@
     methods: {
       save() {
         let memo = {
-          title: this.title,
           content: this.content
         }
         if (this.memo.id) {

@@ -11,12 +11,20 @@ export default createStore({
     },
     getAll: (state) => {
       return state.memos
+    },
+    getMemoById: (state) => (id) => {
+      return state.memos.find(memo => memo.id === id)
     }
   },
   mutations: {
     save (state, newMemo) {
-      newMemo.id = ++state.count
-      state.memos.unshift(newMemo)
+      if (newMemo.id) {
+        let existingMemo = state.memos.find(memo => memo.id === newMemo.id)
+        existingMemo.content = newMemo.content
+      } else {
+        newMemo.id = ++state.count
+        state.memos.unshift(newMemo)
+      }
     }
   },
   actions: {

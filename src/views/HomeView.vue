@@ -2,7 +2,9 @@
   <div class="home">
     <ul v-if="hasMemos">
       <li v-for="memo in memos" :key="memo.id">
-        {{ memo.content.split(/\n/)[0] }}
+        <router-link :to="{ name: 'edit', params: { id: memo.id } }">
+          {{ memo.content.split(/\n/)[0] }}
+        </router-link>
       </li>
     </ul>
     <p v-else>メモはありません</p>
