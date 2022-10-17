@@ -13,14 +13,14 @@
 
 <script>
 export default {
-  name: 'HomeView',
+  name: "HomeView",
   computed: {
     hasMemos() {
-      return this.$store.getters.getCount
+      return this.$store.getters.getCount;
     },
-    memos () {
-      return this.$store.getters.getAll
-    }
-  }
-}
+    memos() {
+      return this.$store.getters.getAll;
+    },
+  },
+};
 </script>

@@ -7,40 +7,38 @@
 </template>
 
 <script>
-  export default {
-    name: 'MemoForm',
-    props: [
-      'memo'
-    ],
-    data() {
-      return {
-        content: this.memo.content
+export default {
+  name: "MemoForm",
+  props: ["memo"],
+  data() {
+    return {
+      content: this.memo.content,
+    };
+  },
+  methods: {
+    save() {
+      let memo = {
+        content: this.content,
+      };
+      if (this.memo.id) {
+        memo.id = this.memo.id;
       }
+      this.$store.commit("save", memo);
+      this.$router.push("/");
     },
-    methods: {
-      save() {
-        let memo = {
-          content: this.content
-        }
-        if (this.memo.id) {
-          memo.id = this.memo.id
-        }
-        this.$store.commit('save', memo)
-        this.$router.push('/')
-      },
-      remove () {
-        this.$store.commit('delete', this.memo.id)
-        this.$router.push('/')
-      }
-    }
-  }
+    remove() {
+      this.$store.commit("delete", this.memo.id);
+      this.$router.push("/");
+    },
+  },
+};
 </script>
 
 <style scoped>
 div {
   margin-bottom: 10px;
 }
-input[type=text] {
+input[type="text"] {
   width: 100%;
 }
 textarea {

@@ -3,12 +3,12 @@
 </template>
 
 <script>
-import MemoForm from '@/components/MemoForm.vue'
+import MemoForm from "@/components/MemoForm.vue";
 
 export default {
-  name: 'NewView',
+  name: "NewView",
   components: {
-    MemoForm
-  }
-}
+    MemoForm,
+  },
+};
 </script>
