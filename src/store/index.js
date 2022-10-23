@@ -11,10 +11,10 @@ export default createStore({
     memos: [],
   },
   getters: {
-    getCount: (state) => {
+    getLengthOfMemos: (state) => {
       return state.memos.length;
     },
-    getAll: (state) => {
+    getAllMemos: (state) => {
       return state.memos;
     },
     getMemoById: (state) => (id) => {

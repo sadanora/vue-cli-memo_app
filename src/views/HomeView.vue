@@ -16,10 +16,10 @@ export default {
   name: "HomeView",
   computed: {
     hasMemos() {
-      return this.$store.getters.getCount;
+      return this.$store.getters.getLengthOfMemos;
     },
     memos() {
-      return this.$store.getters.getAll;
+      return this.$store.getters.getAllMemos;
     },
   },
 };
