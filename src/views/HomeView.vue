@@ -16,7 +16,7 @@ export default {
   name: "HomeView",
   computed: {
     hasMemos() {
-      return this.$store.getters.getLengthOfMemos;
+      return this.$store.getters.getLengthOfMemos > 0;
     },
     memos() {
       return this.$store.getters.getAllMemos;
