@@ -8,6 +8,7 @@
       </li>
     </ul>
     <p v-else>メモはありません</p>
+    <button @click="createNewMemo">+</button>
   </div>
 </template>
 
@@ -20,6 +21,15 @@ export default {
     },
     memos() {
       return this.$store.getters.getAllMemos;
+    },
+  },
+  methods: {
+    createNewMemo() {
+      let memo = {
+        content: "新規メモ",
+      };
+      this.$store.commit("save", memo);
+      this.$router.push("/");
     },
   },
 };
