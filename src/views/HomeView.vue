@@ -29,7 +29,7 @@ export default {
       let memo = {
         content: "新規メモ",
       };
-      this.$store.commit("save", memo);
+      this.$store.commit("saveMemo", memo);
       this.$router.push({ name: "edit", params: { id: memo.id } });
     },
   },

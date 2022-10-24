@@ -23,11 +23,11 @@ export default {
       if (this.memo.id) {
         memo.id = this.memo.id;
       }
-      this.$store.commit("save", memo);
+      this.$store.commit("saveMemo", memo);
       this.$router.push("/");
     },
     remove() {
-      this.$store.commit("delete", this.memo.id);
+      this.$store.commit("deleteMemo", this.memo.id);
       this.$router.push("/");
     },
   },

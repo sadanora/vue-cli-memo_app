@@ -26,7 +26,7 @@ export default createStore({
   },
   mutations: {
     RESTORE_MUTATION: vuexPersist.RESTORE_MUTATION,
-    save(state, memo) {
+    saveMemo(state, memo) {
       if (memo.id) {
         let existingMemo = state.memos.find((memo) => memo.id === memo.id);
         existingMemo.content = memo.content;
@@ -35,7 +35,7 @@ export default createStore({
         state.memos.unshift(memo);
       }
     },
-    delete(state, id) {
+    deleteMemo(state, id) {
       state.memos = state.memos.filter((memo) => memo.id !== id);
     },
     incrementCount(state) {
