@@ -20,20 +20,26 @@ export default createStore({
     getMemoById: (state) => (id) => {
       return state.memos.find((memo) => memo.id === id);
     },
+    getCount: (state) => {
+      return state.count;
+    },
   },
   mutations: {
     RESTORE_MUTATION: vuexPersist.RESTORE_MUTATION,
-    save(state, newMemo) {
-      if (newMemo.id) {
-        let existingMemo = state.memos.find((memo) => memo.id === newMemo.id);
-        existingMemo.content = newMemo.content;
+    save(state, memo) {
+      if (memo.id) {
+        let existingMemo = state.memos.find((memo) => memo.id === memo.id);
+        existingMemo.content = memo.content;
       } else {
-        newMemo.id = ++state.count;
-        state.memos.unshift(newMemo);
+        memo.id = ++state.count;
+        state.memos.unshift(memo);
       }
     },
     delete(state, id) {
       state.memos = state.memos.filter((memo) => memo.id !== id);
+    },
+    incrementCount(state) {
+      ++state.count;
     },
   },
   actions: {},
