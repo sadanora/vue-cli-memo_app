@@ -8,7 +8,7 @@
       </li>
     </ul>
     <p v-else>メモはありません</p>
-    <button @click="createNewMemo">+</button>
+    <button @click="createMemo">+</button>
   </div>
 </template>
 
@@ -24,7 +24,7 @@ export default {
     },
   },
   methods: {
-    createNewMemo() {
+    createMemo() {
       this.$store.commit("incrementCount");
       const id = this.$store.getters.getCount;
       let memo = {
