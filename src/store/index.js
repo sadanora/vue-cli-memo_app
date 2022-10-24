@@ -31,7 +31,7 @@ export default createStore({
         let existingMemo = state.memos.find((memo) => memo.id === memo.id);
         existingMemo.content = memo.content;
       } else {
-        memo.id = ++state.count;
+        memo.id = state.count;
         state.memos.unshift(memo);
       }
     },

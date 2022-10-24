@@ -27,7 +27,6 @@ export default {
     createNewMemo() {
       this.$store.commit("incrementCount");
       let memo = {
-        id: this.$store.count,
         content: "新規メモ",
       };
       this.$store.commit("save", memo);
